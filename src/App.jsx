@@ -12,7 +12,7 @@ function App() {
     <>
 
       <NewTodo/>
-      <Todo/>
+      <Todo id="123" text="test"/>
 
     </>
   )
