@@ -8,12 +8,15 @@ import NewTodo from './NewTodo';
 
 function App() {
 
+  function updateToDo() {
+    
+  }
   return (
     <>
 
       <NewTodo/>
-      <Todo id="123" text="test"/>
-
+      <Todo id="123" text="test" updateToDo = {updateToDo}/>
+      
     </>
   )
 }

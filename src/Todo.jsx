@@ -3,7 +3,8 @@ import viteLogo from './assets/vite.svg';
 import wustlLogo from './assets/wustl.svg';
 import './Todo.css';
 
-function Todo({ id, text }) {
+// below the props are id, text, complete, completeToDo, deleteToDo
+function Todo({ id, text, complete, completeToDo, deleteToDo }) {
   return (
     <>
 
@@ -13,8 +14,21 @@ function Todo({ id, text }) {
         <div className="todo" id={id}>
           {text}
           <div className='toDoButtons'>
-            <input type="checkbox" /> <button>delete</button>
-            <input type="checkbox" />
+
+            {/* html for deleteToD0 */}
+
+            <button id="delete" onClick={() => deleteToDo(id)}>
+              delete
+            </button>
+
+            {/* html for completeToDo */}
+            <input
+              type="checkbox"
+              id={`complete-${id}`}
+              checked={complete}
+              onChange={() => completeToDo(id, { complete: !complete })}
+            />
+
 
           </div>
         </div>
@@ -23,5 +37,6 @@ function Todo({ id, text }) {
     </>
   );
 }
+
 
 export default Todo;
