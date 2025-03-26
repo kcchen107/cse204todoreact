@@ -11,21 +11,25 @@ function NewTodo() {
           <h1>List of Souvenirs To Bring</h1>
         </header>
 
-        <div className="firstpart">
-          <section id="todo-inputs">
-            <label htmlFor="new-todo" className="sr-only">
-              Add new ToDo
-            </label>
-            <input id="new-todo" type="text" placeholder="Add new ToDo" />
-            <button
-              id="new-todo-button"
-              type="button"
-              onClick={() => handleAddTodo()}
-            >
-              Add ToDo
-            </button>
-          </section>
-        </div>
+        <form onSubmit={addTodo}>
+          <div className="firstpart">
+            <section id="todo-inputs">
+              <label htmlFor="new-todo" className="sr-only">
+                Add new ToDo
+              </label>
+              <input id="new-todo" type="text" placeholder="Add new ToDo" />
+              <button
+                id="new-todo-button"
+                type="button"
+                onClick={() => handleAddTodo()}
+              >
+                Add ToDo
+              </button>
+            </section>
+          </div>
+        </form>
+
+
       </div>
     </>
   );
