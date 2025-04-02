@@ -71,6 +71,7 @@ function App() {
       return todo;
     }
   });
+
   // Update state with filtered list using setTodos(remainingTodos);
   setTodos(remainingTodos);
 
@@ -96,7 +97,7 @@ function App() {
         )}
       </div>
 
-{/* 
+      {/* 
       {todos.map((todo) =>
         <Todo key={todo.id} id={todo.id} text={todo.text} completed={todo.completed} completeToDo={completeToDo} deleteToDo={deleteToDo} />
       )}
