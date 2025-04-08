@@ -3,7 +3,7 @@ import viteLogo from './assets/vite.svg';
 import wustlLogo from './assets/wustl.svg';
 import './NewTodo.css';
 
-function NewTodo() {
+function NewTodo({addTodo}) {
   return (
     <>
       <div id="todo-whole">

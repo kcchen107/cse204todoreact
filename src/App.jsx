@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import './App.css'
 import Todo from './Todo';
 import NewTodo from './NewTodo';
+import getTodos from './AJAXcalls'
 
 function App() {
   // App.jsx
@@ -13,7 +14,7 @@ function App() {
   const [order, setOrder] = useState('Ascending');
 
   useEffect(() => {
-
+    let resultData = getTodos();
     //ajax stuff
     setTodos(resultData); //resultData needs to be the array returned by the API
 
@@ -70,10 +71,10 @@ function App() {
     if (todo.id !== id) {
       return todo;
     }
+  setTodos(remainingTodos);
   });
 
   // Update state with filtered list using setTodos(remainingTodos);
-  setTodos(remainingTodos);
 
   return (
     <>

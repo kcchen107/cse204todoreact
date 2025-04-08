@@ -117,38 +117,20 @@ async function getTodos() {
     try {
         let response = await fetch(apiUrl, options);
         let todos = await response.json();
-        const todoList = document.getElementById("todo-list");
-        todoList.innerHTML = '';
-
-        for (let todo of todos) {
-            console.log(todo);
-            let todoItem = document.createElement("li");
-            todoItem.setAttribute("id", todo.id);
-            todoItem.setAttribute("class", "todo");
-            todoItem.innerHTML = todo.text;
-
-            let checkbox = document.createElement("input");
-            checkbox.setAttribute("type", "checkbox");
-            checkbox.checked = todo.completed;
-            checkbox.addEventListener('change', () =>
-                handleCheckboxChange(todo.id, checkbox.checked));
-            todoItem.appendChild(checkbox);
-            //Above code is to check for completion of todo
-
-            let deleteButton = document.createElement("button");
-            deleteButton.innerHTML = "delete";
-            todoItem.appendChild(deleteButton);
-            deleteButton.addEventListener('click', function (event) {
-                const todoId = event.target.parentElement.id;
-                deleteTodo(todoId);
-            });
-            //Above code is for the delete function
-
-            todoList.appendChild(todoItem);
-        }
+        return todos;
     } 
+
     catch (error) {
         console.error(error);
     }
 }
 // end of function for how I'll get todos from API
+
+
+export default {
+    deleteTodo,
+    handleCheckboxChange,
+    handleAddTodo,
+    getTodos
+    }
+    
