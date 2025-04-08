@@ -16,7 +16,7 @@ async function deleteTodo(todoId) {
         let response = await fetch(apiUrl, options);
         if (response.ok) {
             console.log(`${todoId} Successfully deleted todo`);
-            document.getElementById(todoId).remove();
+            // document.getElementById(todoId).remove();
         } else {
             console.error("Failed to delete todo");
         }
@@ -53,6 +53,7 @@ async function handleCheckboxChange(todoId, isChecked) {
             throw new Error("Failed to update todo completion");
         }
         console.log(`${todoId} Successfully updated todo completion`);
+        return response.json();
     }
     catch (error) {
         console.error(error);
@@ -92,6 +93,7 @@ async function handleAddTodo() {
         todoInput.value = ' ';
         todoInput.focus();
         getTodos();
+        return response.json();
     }
     catch (error) {
         console.error('Error adding todo', error);
@@ -117,6 +119,8 @@ async function getTodos() {
     try {
         let response = await fetch(apiUrl, options);
         let todos = await response.json();
+        console.log(todos);
+        console.log("printing todos")
         return todos;
     }
 

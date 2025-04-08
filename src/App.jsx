@@ -1,6 +1,3 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import wustlLogo from './assets/wustl.svg'
 import { useState, useEffect } from 'react';
 import './App.css'
 import Todo from './Todo';
@@ -12,7 +9,7 @@ function App() {
   // App.jsx
 
   const [todos, setTodos] = useState([]);
-  const [order, setOrder] = useState('Ascending');
+  const [order, setOrder] = useState('ascending');
 
 
   useEffect(() => { // this is the useEffect hook, it runs when the component starts or gets rendered
@@ -25,13 +22,24 @@ function App() {
     fetchTodos(); // call the function defined above
   }, []);
 
-  function addTodo(e) {
-    //ajax stuff
-    let newTodos = [result.data, ...todos];
-    setTodos(newTodos);
+  async function addTodo(text) {
+    try {
+      const result = await ajax.handleAddTodo({ text, completed: false });
+      console.log(result)
+      let newTodos = [result, ...todos];
+      console.log("printing after add todo");
+      console.log(result);
+      console.log(newTodos);
+      setTodos(newTodos);
+    } catch (err) {
+      console.error('Error adding todo:', err);
+    }
   }
 
-  function completeToDo() {
+  async function completeToDo(id, isCompleted) {
+    console.log("hey its completed")
+    const result = await ajax.handleCheckboxChange(id, isCompleted);
+    console.log(result)    
   }
 
   function sortTimeStamp() {
@@ -69,14 +77,16 @@ function App() {
   }
 
   // Need id of the todo that I want to delete as a variable
-  const remainingTodos = todos.filter((todo) => {
 
-    // Looping through all todos, if the id of the current todo DOES NOT equal the id of the todo I want to delete, keep it
-    if (todo.id !== id) {
-      return todo;
-    }
+  // Looping through all todos, if the id of the current todo DOES NOT equal the id of the todo I want to delete, keep it
+
+  async function deleteToDo(id) {
+    const result = await ajax.deleteTodo(id);
+    const remainingTodos = todos.filter((todo) => todo.id !== id);
     setTodos(remainingTodos);
-  });
+    console.log("to do delete button");
+  }
+
 
   // Update state with filtered list using setTodos(remainingTodos);
 
@@ -96,11 +106,19 @@ function App() {
         </option>
       </select>
 
-      {todos.map((todo) =>
-        <div className={`todo-item ${todo.completed ? 'completed' : ''}`}>
-          <Todo key={todo.id} id={todo.id} text={todo.text} completed={todo.completed} completeToDo={completeToDo} deleteToDo={deleteToDo} />
-        </div>
-      )}
+      <div id="todo-list">
+        {todos.map((todo) =>
+          <div className={`todo-item ${todo.completed ? 'completed' : ''}`}>
+            <Todo
+              key={todo.id}
+              id={todo.id}
+              text={todo.text}
+              completed={todo.completed}
+              completeToDo={completeToDo}
+              deleteToDo={deleteToDo} />
+          </div>
+        )}
+      </div>
 
       {/* 
       {todos.map((todo) =>
