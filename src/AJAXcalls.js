@@ -3,7 +3,7 @@ async function deleteTodo(todoId) {
     const apiUrl = `https://cse204.work/todos/${todoId}`;
     const apiKey = '6f10fe-3100e4-ad0fd1-e2b9ad-a30298';
     // my unique API Key
-    
+
     let options = {
         method: 'DELETE',
         headers: {
@@ -42,7 +42,7 @@ async function handleCheckboxChange(todoId, isChecked) {
         headers: {
             'Content-Type': 'application/json', 'x-api-key': apiKey
             //can directly refer to my unique API key by calling apiKey because it is stated previously
-        }, 
+        },
         body: JSON.stringify(updatedTodo)
     };
 
@@ -92,7 +92,7 @@ async function handleAddTodo() {
         todoInput.value = ' ';
         todoInput.focus();
         getTodos();
-    } 
+    }
     catch (error) {
         console.error('Error adding todo', error);
     }
@@ -118,7 +118,7 @@ async function getTodos() {
         let response = await fetch(apiUrl, options);
         let todos = await response.json();
         return todos;
-    } 
+    }
 
     catch (error) {
         console.error(error);
@@ -132,5 +132,4 @@ export default {
     handleCheckboxChange,
     handleAddTodo,
     getTodos
-    }
-    
+}
