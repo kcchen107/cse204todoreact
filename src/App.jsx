@@ -5,7 +5,8 @@ import { useState, useEffect } from 'react';
 import './App.css'
 import Todo from './Todo';
 import NewTodo from './NewTodo';
-import getTodos from './AJAXcalls'
+import ajax from './AJAXcalls' // changed this to be called ajax instead of getTodos. Why? Look at AJAXCalls.js and see that the export function defines everything as one object
+// ajax is an arbitrary name, can call it anything but cannot import the AJAXCalls.js file on its own
 
 function App() {
   // App.jsx
@@ -13,11 +14,15 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [order, setOrder] = useState('Ascending');
 
-  useEffect(() => {
-    let resultData = getTodos();
-    //ajax stuff
-    setTodos(resultData); //resultData needs to be the array returned by the API
 
+  useEffect(() => { // this is the useEffect hook, it runs when the component starts or gets rendered
+    async function fetchTodos() { // define a function to fetch the todos. Why? react rule where can't call an async function directly in useEffect
+      const resultData = await ajax.getTodos(); // call getTodo function in the AJAXCalls file
+      setTodos(resultData); // sets a list of todos to todos state variable. 
+    }
+
+
+    fetchTodos(); // call the function defined above
   }, []);
 
   function addTodo(e) {
@@ -63,13 +68,14 @@ function App() {
     setOrder(e.target.value)
   }
 
-  // You need the id of the todo you want to delete as a variable.
+  // Need id of the todo that I want to delete as a variable
   const remainingTodos = todos.filter((todo) => {
-    // Looping through all todos, if the id of the current todo DOES NOT equal the id of the todo we want to delete, keep it
+
+    // Looping through all todos, if the id of the current todo DOES NOT equal the id of the todo I want to delete, keep it
     if (todo.id !== id) {
       return todo;
     }
-  setTodos(remainingTodos);
+    setTodos(remainingTodos);
   });
 
   // Update state with filtered list using setTodos(remainingTodos);
@@ -90,11 +96,11 @@ function App() {
         </option>
       </select>
 
-        {todos.map((todo) =>
-      <div className={`todo-item ${todo.completed ? 'completed' : ''}`}>
+      {todos.map((todo) =>
+        <div className={`todo-item ${todo.completed ? 'completed' : ''}`}>
           <Todo key={todo.id} id={todo.id} text={todo.text} completed={todo.completed} completeToDo={completeToDo} deleteToDo={deleteToDo} />
-      </div>
-        )}
+        </div>
+      )}
 
       {/* 
       {todos.map((todo) =>
