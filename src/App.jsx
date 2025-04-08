@@ -26,9 +26,7 @@ function App() {
     setTodos(newTodos);
   }
 
-
   function completeToDo() {
-
   }
 
   function sortTimeStamp() {
