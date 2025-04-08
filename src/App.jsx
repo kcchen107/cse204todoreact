@@ -77,7 +77,7 @@ function App() {
 
   return (
     <>
-      <NewTodo addTodo={addTodo} other={stuff} goes={here} />
+      <NewTodo addTodo={addTodo} />
 
       <button onClick={sortTimeStamp}> sortTimeStamp </button>
       <button onClick={sortAlphabetically}> sortAlphabetically </button>
@@ -91,11 +91,11 @@ function App() {
         </option>
       </select>
 
-      <div className={`todo-item ${todo.completed ? 'completed' : ''}`}>
         {todos.map((todo) =>
+      <div className={`todo-item ${todo.completed ? 'completed' : ''}`}>
           <Todo key={todo.id} id={todo.id} text={todo.text} completed={todo.completed} completeToDo={completeToDo} deleteToDo={deleteToDo} />
-        )}
       </div>
+        )}
 
       {/* 
       {todos.map((todo) =>
