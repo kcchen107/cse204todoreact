@@ -24,11 +24,16 @@ function Todo({ id, text, completed, completeToDo, deleteToDo }) {
             {/* html for completeToDo */}
             <input
               type="checkbox"
+              className={`checkbox ${completed ? 'completed' : ''}`}
+              // className={`${completed ? 'completed' : ''}`}
               id={`complete-${id}`}
               checked={completed}
-              onChange={() => completeToDo(id, { completed: !completed })}
+              // onChange={() => completeToDo(id, { completed: !completed })}
+              onChange={() => {
+                console.log(`Todo ID: ${id}, Completed: ${!completed}`);
+                completeToDo(id, { completed: !completed });
+              }}
             />
-
 
           </div>
         </div>
