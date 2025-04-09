@@ -15,7 +15,7 @@ function NewTodo({ addTodo }) {
   return (
     <div id="todo-whole">
       <header>
-        <h1>List of Souvenirs To Bring</h1>
+        <h1 id="souvenirsTitle">List of Souvenirs To Bring</h1>
       </header>
 
       <form onSubmit={handleSubmit}> {/* Form uses handleSubmit */}

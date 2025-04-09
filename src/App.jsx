@@ -39,7 +39,7 @@ function App() {
   async function completeToDo(id, isCompleted) {
     console.log("hey its completed")
     const result = await ajax.handleCheckboxChange(id, isCompleted);
-    console.log(result)    
+    console.log(result)
   }
 
   function sortTimeStamp() {
@@ -94,17 +94,19 @@ function App() {
     <>
       <NewTodo addTodo={addTodo} />
 
-      <button onClick={sortTimeStamp}> sortTimeStamp </button>
-      <button onClick={sortAlphabetically}> sortAlphabetically </button>
-      <button onClick={sortCompletion}> sortCompletion </button>
-      <select onChange={changeSortOrder} value={order} >
-        <option value="ascending">
-          ascending
-        </option>
-        <option value="descending">
-          descending
-        </option>
-      </select>
+      <div id="sortingLine">
+        <button onClick={sortTimeStamp}> sortTimeStamp </button>
+        <button onClick={sortAlphabetically}> sortAlphabetically </button>
+        <button onClick={sortCompletion}> sortCompletion </button>
+        <select onChange={changeSortOrder} value={order} >
+          <option value="ascending">
+            ascending
+          </option>
+          <option value="descending">
+            descending
+          </option>
+        </select>
+      </div>
 
       <div id="todo-list">
         {todos.map((todo) =>

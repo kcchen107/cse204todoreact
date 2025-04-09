@@ -1,3 +1,7 @@
+#sortingLine {
+  margin-left: 64px;
+}
+
 .gift {
   color: #ececece7;
   font-size: 15px;
@@ -46,12 +50,12 @@ h1 {
   border: 5px solid #e25db8;
   border-radius: 5px;
   background-color: #fff0db;
-  margin-top: 200px;
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
 
 #todo-list {
   list-style-type: none;
-  margin-right: 29px;
 }
 
 #todo-list li {
@@ -63,9 +67,9 @@ h1 {
   border-radius: 10px;
 }
 
-#todo-list li .todo-text {
+/* #todo-list li .todo-text {
   margin-right: 10px;
-}
+} */
 
 #todo-list li button {
   font-weight: bold;
@@ -81,9 +85,9 @@ h1 {
   color: #821f8d;
 }
 
-#new-todo {
+/* #new-todo {
   margin-left: 20px;
-}
+} */
 
 ::placeholder {
   color: rgb(11, 11, 11);
@@ -91,7 +95,6 @@ h1 {
 
 #new-todo-button {
   background-color: #9A096C;
-  margin-left: 5rem;
   border: 2px solid #821f8d;
   border-radius: 5px;
   color: #f1f1f1;
