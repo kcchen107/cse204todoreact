@@ -95,10 +95,10 @@ function App() {
       <NewTodo addTodo={addTodo} />
 
       <div id="sortingLine">
-        <button onClick={sortTimeStamp}> sortTimeStamp </button>
-        <button onClick={sortAlphabetically}> sortAlphabetically </button>
-        <button onClick={sortCompletion}> sortCompletion </button>
-        <select onChange={changeSortOrder} value={order} >
+        <button id="buttomTimeStamp" onClick={sortTimeStamp}> sortTimeStamp </button>
+        <button id="buttonAlphabet" onClick={sortAlphabetically}> sortAlphabetically </button>
+        <button id="buttonCompletion" onClick={sortCompletion}> sortCompletion </button>
+        <select id="selectButton" onChange={changeSortOrder} value={order} >
           <option value="ascending">
             ascending
           </option>

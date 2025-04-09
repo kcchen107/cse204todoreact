@@ -1,5 +1,26 @@
 #sortingLine {
   margin-left: 64px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#buttomTimeStamp {
+  background-color: #f5d8ff;
+  color: #0d0d0d;
+}
+
+#buttonAlphabet {
+  background-color: #f5d8ff;
+  color: #0d0d0d;
+}
+
+#buttonCompletion {
+  background-color: #f5d8ff;
+  color: #0d0d0d;
+}
+
+#selectButton {
+  background-color: #d4feff;
+  color: #0d0d0d;
 }
 
 .gift {
@@ -93,7 +114,12 @@ h1 {
   color: rgb(11, 11, 11);
 }
 
+#new-todo {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 #new-todo-button {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   background-color: #9A096C;
   border: 2px solid #821f8d;
   border-radius: 5px;
