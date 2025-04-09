@@ -118,10 +118,25 @@ h1 {
   background-color: #821f8d;
 }
 
-@media(min-width: 375px) {
-  .todo-item {
-    font-size: 15px;
-    padding: 10px;
+@media(max-width: 540px) {
+  .firstpart {
+    width: 375px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #todo-inputs {
+    width: 342px;
+    margin: 0;
+  }
+  #souvenirsTitle {
+    width: 375px;
+  }
+  #new-todo-button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #formTwoComponents {
+    margin-bottom: 10px;
   }
 }
 

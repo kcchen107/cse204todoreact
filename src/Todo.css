@@ -54,7 +54,7 @@ h1 {
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
-}
+}  
 
 #delete {
     cursor: pointer;
@@ -132,11 +132,7 @@ h1 {
     background-color: #821f8d;
 }
 
-@media(min-width: 375px) {
-    .todo-item {
-        font-size: 15px;
-        padding: 10px;
-    }
+@media(max-width: 375px) {
 }
 
 @keyframes fall {

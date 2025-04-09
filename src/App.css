@@ -146,10 +146,19 @@ h1 {
   background-color: pink;
 }
 
-@media(min-width: 375px) {
+@media(max-width: 540px) {
   .todo-item {
       font-size: 15px;
       padding: 10px;
+  }
+  #souvenirsTitle {
+    max-width: 375px;
+  }
+  #sortingLine {
+    max-width: 375px;
+  }
+  #todo-list {
+    max-width: 375px;
   }
 }
 

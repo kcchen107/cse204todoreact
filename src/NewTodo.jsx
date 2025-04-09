@@ -21,6 +21,7 @@ function NewTodo({ addTodo }) {
       <form onSubmit={handleSubmit}> {/* Form uses handleSubmit */}
         <div className="firstpart">
           <section id="todo-inputs">
+            <div id="formTwoComponents">
             <label htmlFor="new-todo" className="sr-only">
               Add new ToDo
             </label>
@@ -31,6 +32,7 @@ function NewTodo({ addTodo }) {
               value={text} // Bind input value to state
               onChange={(e) => setText(e.target.value)} // Update state on change
             />
+            </div>
             <button
               id="new-todo-button"
               type="submit" // Button type is submit, triggering form submission
