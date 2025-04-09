@@ -34,7 +34,7 @@ async function handleCheckboxChange(todoId, isChecked) {
     //Above is my unique API Key
 
     let updatedTodo = {
-        completed: isChecked
+        completed: !isChecked
     };
 
     let options = {
@@ -53,6 +53,7 @@ async function handleCheckboxChange(todoId, isChecked) {
             throw new Error("Failed to update todo completion");
         }
         console.log(`${todoId} Successfully updated todo completion`);
+        console.log(response.json.completed)
         return response.json();
     }
     catch (error) {

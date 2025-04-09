@@ -40,6 +40,14 @@ function App() {
     console.log("hey its completed")
     const result = await ajax.handleCheckboxChange(id, isCompleted);
     console.log(result)
+    // below if loop updates the old todo with the new todo state (complete false -> completed true)
+    const newTodos = todos.map(todo => {
+      if (todo.id === result.id) {
+        return result;
+      }
+      return todo;
+    })
+    setTodos(newTodos);
   }
 
   function sortTimeStamp() {
@@ -116,7 +124,7 @@ function App() {
               id={todo.id}
               text={todo.text}
               completed={todo.completed}
-              completeToDo={completeToDo}
+              completeToDo={() => completeToDo(todo.id, todo.completed)}
               deleteToDo={deleteToDo} />
           </div>
         )}
