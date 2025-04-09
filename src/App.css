@@ -1,6 +1,10 @@
 #sortingLine {
-  margin-left: 64px;
+  margin-left: 9px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 50px;
 }
 
 #buttomTimeStamp {
@@ -49,6 +53,7 @@ body {
   min-width: 375px;
   height: 100vh;
   background: linear-gradient(120deg, #e9afaf, #f3eeee, #f7aaaa);
+  overflow-x: hidden; 
 }
 
 h1 {
@@ -77,6 +82,8 @@ h1 {
 
 #todo-list {
   list-style-type: none;
+  display: flex;
+  flex-direction: column;
 }
 
 #todo-list li {
@@ -131,6 +138,12 @@ h1 {
 #new-todo-button:hover {
   border-color: #821f8d;
   background-color: #821f8d;
+}
+
+.todo-item {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  background-color: pink;
 }
 
 @media(min-width: 375px) {
